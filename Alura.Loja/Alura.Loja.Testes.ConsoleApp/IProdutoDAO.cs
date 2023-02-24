@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    interface IProdutoDAO
+    internal interface IProdutoDAO
     {
         void Adicionar(Produto p);
         void Atualizar(Produto p);

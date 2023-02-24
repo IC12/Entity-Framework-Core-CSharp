@@ -21,50 +21,50 @@ namespace Alura.Loja.Testes.ConsoleApp
             //RecuperarProdutos();
             //AtualizarProduto();
 
-            using (var contexto = new LojaContext())
-            {
-                var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
-                var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
-                loggerFactory.AddProvider(SqlLoggerProvider.Create());
+            //using (var contexto = new LojaContext())
+            //{
+            //    var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
+            //    var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+            //    loggerFactory.AddProvider(SqlLoggerProvider.Create());
 
-                var produtos = contexto.Produtos.ToList();
+            //    var produtos = contexto.Produtos.ToList();
 
-                ExibeEntries(contexto.ChangeTracker.Entries());
+            //    ExibeEntries(contexto.ChangeTracker.Entries());
 
-                //var p1 = produtos.Last();
-                //p1.Nome = "007 - Cassino Royale";
-                //contexto.SaveChanges();
+            //    //var p1 = produtos.Last();
+            //    //p1.Nome = "007 - Cassino Royale";
+            //    //contexto.SaveChanges();
 
-                var novoProd = new Produto()
-                {
-                    Nome = "Sabão em pó",
-                    Categoria = "Limpeza",
-                    Preco = 4.99
-                };
-                contexto.Produtos.Add(novoProd);
+            //    var novoProd = new Produto()
+            //    {
+            //        Nome = "Sabão em pó",
+            //        Categoria = "Limpeza",
+            //        Preco = 4.99
+            //    };
+            //    contexto.Produtos.Add(novoProd);
 
-                //usando State se a variável foi modificada ou não
-                ExibeEntries(contexto.ChangeTracker.Entries());
+            //    //usando State se a variável foi modificada ou não
+            //    ExibeEntries(contexto.ChangeTracker.Entries());
 
-                contexto.Produtos.Remove(novoProd);
+            //    contexto.Produtos.Remove(novoProd);
 
-                ExibeEntries(contexto.ChangeTracker.Entries());
+            //    ExibeEntries(contexto.ChangeTracker.Entries());
 
-                //contexto.SaveChanges();
+            //    //contexto.SaveChanges();
 
-                var entry = contexto.Entry(novoProd);
-                Console.WriteLine("\n\n" + entry.Entity.ToString() + " - " + entry.State);
-            }
+            //    var entry = contexto.Entry(novoProd);
+            //    Console.WriteLine("\n\n" + entry.Entity.ToString() + " - " + entry.State);
+            //}
         }
 
-        private static void ExibeEntries(IEnumerable<EntityEntry> entries)
-        {
-            Console.WriteLine("================");
-            foreach (var item in entries)
-            {
-                Console.WriteLine(item.Entity.ToString() + " - " + item.State);
-            }
-        }
+        //private static void ExibeEntries(IEnumerable<EntityEntry> entries)
+        //{
+        //    Console.WriteLine("================");
+        //    foreach (var item in entries)
+        //    {
+        //        Console.WriteLine(item.Entity.ToString() + " - " + item.State);
+        //    }
+        //}
 
         //private static void AtualizarProduto()
         //{
