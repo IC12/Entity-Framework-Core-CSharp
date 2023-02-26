@@ -14,6 +14,30 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
+            var paoFrances = new Produto();
+            paoFrances.Nome = "Pão Francês";
+            paoFrances.PrecoUnitario = 0.40;
+            paoFrances.Unidade = "Unidade";
+            paoFrances.Categoria = "Panificadora";
+
+            var compra = new Compra();
+            compra.Quantidade = 6;
+            compra.Produto = paoFrances;
+            compra.Preco = paoFrances.PrecoUnitario * compra.Quantidade;
+
+            using (var contexto = new LojaContext())
+            {
+                var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
+                var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+                loggerFactory.AddProvider(SqlLoggerProvider.Create());
+
+                contexto.Compras.Add(compra);
+
+                ExibeEntries(contexto.ChangeTracker.Entries());
+
+                contexto.SaveChanges();
+            }
+
             //GravarUsandoAdoNet();
             //GravarUsandoEntity();
             //RecuperarProdutos();
@@ -57,14 +81,14 @@ namespace Alura.Loja.Testes.ConsoleApp
             //}
         }
 
-        //private static void ExibeEntries(IEnumerable<EntityEntry> entries)
-        //{
-        //    Console.WriteLine("================");
-        //    foreach (var item in entries)
-        //    {
-        //        Console.WriteLine(item.Entity.ToString() + " - " + item.State);
-        //    }
-        //}
+        private static void ExibeEntries(IEnumerable<EntityEntry> entries)
+        {
+            Console.WriteLine("================");
+            foreach (var item in entries)
+            {
+                Console.WriteLine(item.Entity.ToString() + " - " + item.State);
+            }
+        }
 
         //private static void AtualizarProduto()
         //{
