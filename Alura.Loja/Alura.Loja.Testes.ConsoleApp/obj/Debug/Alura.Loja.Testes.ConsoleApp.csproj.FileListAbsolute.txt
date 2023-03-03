@@ -4,7 +4,6 @@ c:\users\caleum\documents\visual studio 2017\Projects\Alura.Loja\Alura.Loja.Test
 c:\users\caleum\documents\visual studio 2017\Projects\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.csprojResolveAssemblyReference.cache
 c:\users\caleum\documents\visual studio 2017\Projects\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.exe
 c:\users\caleum\documents\visual studio 2017\Projects\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.pdb
-C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.csproj.AssemblyReference.cache
 C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.csproj.CoreCompileInputs.cache
 C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.exe
 C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.pdb
@@ -78,3 +77,4 @@ C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Lo
 C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
 C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
 C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Iara Camargos\Documents\Curso Entity Framework Core\Alura.Loja\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.csproj.AssemblyReference.cache

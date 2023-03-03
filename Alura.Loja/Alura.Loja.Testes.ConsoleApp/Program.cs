@@ -14,20 +14,40 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            //var paoFrances = new Produto();
-            //paoFrances.Nome = "Pão Francês";
-            //paoFrances.PrecoUnitario = 0.40;
-            //paoFrances.Unidade = "Unidade";
-            //paoFrances.Categoria = "Panificadora";
+            var fulano = new Cliente();
+            fulano.Nome = "Fulaninho de Tal";
+            fulano.EnderecoEntrega = new Endereco()
+            {
+                Numero = 12,
+                Logradouro = "Rua dos Válidos",
+                Complemento = "Sobrado",
+                Bairro = "Centro",
+                Cidade = "Cidade"
+            };
 
-            //var compra = new Compra();
-            //compra.Quantidade = 6;
-            //compra.Produto = paoFrances;
-            //compra.Preco = paoFrances.PrecoUnitario * compra.Quantidade;
+            using (var contexto = new LojaContext())
+            {
+                var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
+                var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+                loggerFactory.AddProvider(SqlLoggerProvider.Create());
 
-            var p1 = new Produto() {Nome = "Barra de Chocolate", Categoria = "Alimentos", PrecoUnitario = 8.79, Unidade = "Gramas"};
-            var p2 = new Produto() {Nome = "Refrigerante", Categoria = "Bebidas", PrecoUnitario = 7.45, Unidade = "Litros"};
-            var p3 = new Produto() {Nome = "Ovo de Páscoa", Categoria = "Alimentos", PrecoUnitario = 34.99, Unidade = "Gramas"};
+                contexto.Clientes.Add(fulano);
+                contexto.SaveChanges();
+            }
+        }
+
+        public static void MuitosPMuitos()
+        {
+            //GravarUsandoAdoNet();
+            //GravarUsandoEntity();
+            //RecuperarProdutos();
+            //ExcluirProdutos();
+            //RecuperarProdutos();
+            //AtualizarProduto();
+
+            var p1 = new Produto() { Nome = "Barra de Chocolate", Categoria = "Alimentos", PrecoUnitario = 8.79, Unidade = "Gramas" };
+            var p2 = new Produto() { Nome = "Refrigerante", Categoria = "Bebidas", PrecoUnitario = 7.45, Unidade = "Litros" };
+            var p3 = new Produto() { Nome = "Ovo de Páscoa", Categoria = "Alimentos", PrecoUnitario = 34.99, Unidade = "Gramas" };
 
             var promocaoPascoa = new Promocao();
             promocaoPascoa.Descricao = "Páscoa Feliz";
@@ -47,58 +67,14 @@ namespace Alura.Loja.Testes.ConsoleApp
                 //contexto.Promocoes.Add(promocaoPascoa);
                 var promocao = contexto.Promocoes.Find(1);
                 contexto.Promocoes.Remove(promocao);
+
+                //usando State se a variável foi modificada ou não
+                //var entry = contexto.Entry(novoProd);
+                //Console.WriteLine("\n\n" + entry.Entity.ToString() + " - " + entry.State);
                 //ExibeEntries(contexto.ChangeTracker.Entries());
 
                 contexto.SaveChanges();
-
-                //contexto.Compras.Add(compra);
-
-                //ExibeEntries(contexto.ChangeTracker.Entries());
-
-                //contexto.SaveChanges();
             }
-
-            //GravarUsandoAdoNet();
-            //GravarUsandoEntity();
-            //RecuperarProdutos();
-            //ExcluirProdutos();
-            //RecuperarProdutos();
-            //AtualizarProduto();
-
-            //using (var contexto = new LojaContext())
-            //{
-            //    var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
-            //    var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
-            //    loggerFactory.AddProvider(SqlLoggerProvider.Create());
-
-            //    var produtos = contexto.Produtos.ToList();
-
-            //    ExibeEntries(contexto.ChangeTracker.Entries());
-
-            //    //var p1 = produtos.Last();
-            //    //p1.Nome = "007 - Cassino Royale";
-            //    //contexto.SaveChanges();
-
-            //    var novoProd = new Produto()
-            //    {
-            //        Nome = "Sabão em pó",
-            //        Categoria = "Limpeza",
-            //        Preco = 4.99
-            //    };
-            //    contexto.Produtos.Add(novoProd);
-
-            //    //usando State se a variável foi modificada ou não
-            //    ExibeEntries(contexto.ChangeTracker.Entries());
-
-            //    contexto.Produtos.Remove(novoProd);
-
-            //    ExibeEntries(contexto.ChangeTracker.Entries());
-
-            //    //contexto.SaveChanges();
-
-            //    var entry = contexto.Entry(novoProd);
-            //    Console.WriteLine("\n\n" + entry.Entity.ToString() + " - " + entry.State);
-            //}
         }
 
         private static void ExibeEntries(IEnumerable<EntityEntry> entries)
